@@ -42,9 +42,9 @@ export class ProductoCard extends LitElement {
             <div class="mb-3">
                 <h1> Datos Producto </h1>
                 <label for="prod_nombre" class="form-label">Nombre del Producto:</label>
-                <input type="text" class="form-control" id="prod_nombre" @input="${(e) => { this.prod_nombre = e.target.value; }}">
+                <input type="text" class="form-control" id="prod_nombre" @input="${(e) => { this.nombreProducto = e.target.value; }}">
                 <label for="prod_precio_unit" class="form-label">Precio Unitario:</label>
-                <input type="number" class="form-control" id="prod_precio_unit" @input="${(e) => { this.prod_precio_unit = parseFloat(e.target.value); this.calcular_total(); }}">
+                <input type="number" class="form-control" id="prod_precio_unit" @input="${(e) => { this.precioUnitario = parseFloat(e.target.value); this.calcularPrecioTotal(); }}">
                 
             </div>
             </div>
