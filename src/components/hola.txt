@@ -1,0 +1,75 @@
+import { LitElement, html, css, unsafeCSS } from "lit";
+import bootstrap from "bootstrap/dist/css/bootstrap.min.css?inline";
+export class ComponenteCard extends LitElement {
+    static styles = [
+        unsafeCSS(bootstrap),
+        css`
+      
+    `
+    ];
+
+    static properties = {
+        prod_nombre: { type: String },
+        prod_precio_unit: { type: Number },
+        prod_cantidad: { type: Number },
+        prod_total: { type: Number }
+    };
+    constructor() {
+        super();
+        this.prod_nombre = " ";
+        this.prod_precio_unit = 0;
+        this.prod_cantidad = 1;
+        this.prod_total = 0;
+    }
+
+    calcular_total() {
+        this.prod_total = this.prod_precio_unit * this.prod_cantidad;
+    }
+
+
+    btn_aumentar() {
+        this.prod_cantidad += 1;
+        this.prod_total = this.prod_precio_unit * this.prod_cantidad;
+    }
+    btn_disminuir() {
+        if (this.prod_cantidad > 0) {
+            this.prod_cantidad -= 1;
+            this.prod_total = this.prod_precio_unit * this.prod_cantidad;
+        }
+    }
+
+
+    render() {
+        return html`
+
+        <div class="container mt-5 bg-light p-4 rounded">
+         <div class="mb-3">
+            <h1> Ingreso Datos Producto </h1>
+            <label for="prod_nombre" class="form-label">Nombre del Producto:</label>
+            <input type="text" class="form-control" id="prod_nombre" @input="${(e) => { this.prod_nombre = e.target.value; }}">
+            <label for="prod_precio_unit" class="form-label">Precio Unitario:</label>
+            <input type="number" class="form-control" id="prod_precio_unit" @input="${(e) => { this.prod_precio_unit = parseFloat(e.target.value); this.calcular_total(); }}">
+            
+         </div>
+         </div>
+        <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Producto: ${this.prod_nombre}</h5>
+                <p class="card-text">Precio Unitario: $${this.prod_precio_unit}</p>
+                <p class="card-text">Cantidad: ${this.prod_cantidad}</p>
+                <p class="card-text">Total: $${this.prod_total}</p>
+            </div>
+        </div>
+        <button class="btn btn-primary" @click="${this.btn_aumentar}">  Aumentar </button>
+        <button class="btn btn-danger" @click="${this.btn_disminuir}">  Disminuir </button>
+
+        </div>
+        `;
+    }
+}
+
+
+
+
+customElements.define("componente-card", ComponenteCard);

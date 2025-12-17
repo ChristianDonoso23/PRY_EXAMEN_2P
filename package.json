@@ -1,0 +1,30 @@
+{
+  "name": "pry_examen_2p",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChristianDonoso23/PRY_EXAMEN_2P.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ChristianDonoso23/PRY_EXAMEN_2P/issues"
+  },
+  "homepage": "https://github.com/ChristianDonoso23/PRY_EXAMEN_2P#readme",
+  "dependencies": {
+    "lit": "^3.3.1"
+  },
+  "devDependencies": {
+    "vite": "^7.3.0"
+  }
+}
