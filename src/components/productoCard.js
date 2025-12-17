@@ -16,14 +16,10 @@ export class ProductoCard extends LitElement {
         this.precioTotal = 0;
     }
 
-
-
-
     calcularPrecioTotal() {
         this.precioTotal = this.precioUnitario * this.cantidadProducto;
         
     }
-
 
     aumentar() {
         this.cantidadProducto += 1;
@@ -44,7 +40,7 @@ export class ProductoCard extends LitElement {
 
             <div class="container mt-5 bg-light p-4 rounded">
             <div class="mb-3">
-                <h1> Ingreso Datos Producto </h1>
+                <h1> Datos Producto </h1>
                 <label for="prod_nombre" class="form-label">Nombre del Producto:</label>
                 <input type="text" class="form-control" id="prod_nombre" @input="${(e) => { this.prod_nombre = e.target.value; }}">
                 <label for="prod_precio_unit" class="form-label">Precio Unitario:</label>
